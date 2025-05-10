@@ -1,22 +1,3 @@
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
-
-from .predict import YOLOEVPDetectPredictor, YOLOEVPSegPredictor
-from .train import YOLOEPEFreeTrainer, YOLOEPETrainer, YOLOETrainer, YOLOETrainerFromScratch, YOLOEVPTrainer
-from .train_seg import YOLOEPESegTrainer, YOLOESegTrainer, YOLOESegTrainerFromScratch, YOLOESegVPTrainer
-from .val import YOLOEDetectValidator, YOLOESegValidator
-
-__all__ = [
-    "YOLOETrainer",
-    "YOLOEPETrainer",
-    "YOLOESegTrainer",
-    "YOLOEDetectValidator",
-    "YOLOESegValidator",
-    "YOLOEPESegTrainer",
-    "YOLOESegTrainerFromScratch",
-    "YOLOESegVPTrainer",
-    "YOLOEVPTrainer",
-    "YOLOEPEFreeTrainer",
-    "YOLOEVPDetectPredictor",
-    "YOLOEVPSegPredictor",
-    "YOLOETrainerFromScratch",
-]
+version https://git-lfs.github.com/spec/v1
+oid sha256:e922f2b5d26dc2edfba9ec1fec2a1b1bb0bb5a5d66fb1b4d76f09711ab1f3c31
+size 760

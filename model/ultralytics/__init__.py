@@ -1,30 +1,3 @@
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
-
-__version__ = "8.3.127"
-
-import os
-
-# Set ENV variables (place before imports)
-if not os.environ.get("OMP_NUM_THREADS"):
-    os.environ["OMP_NUM_THREADS"] = "1"  # default for reduced CPU utilization during training
-
-from ultralytics.models import NAS, RTDETR, SAM, YOLO, YOLOE, FastSAM, YOLOWorld
-from ultralytics.utils import ASSETS, SETTINGS
-from ultralytics.utils.checks import check_yolo as checks
-from ultralytics.utils.downloads import download
-
-settings = SETTINGS
-__all__ = (
-    "__version__",
-    "ASSETS",
-    "YOLO",
-    "YOLOWorld",
-    "YOLOE",
-    "NAS",
-    "SAM",
-    "FastSAM",
-    "RTDETR",
-    "checks",
-    "download",
-    "settings",
-)
+version https://git-lfs.github.com/spec/v1
+oid sha256:ad6d8bf86e709f08db043797700d8d2c88dd036f752ba7a9765df7fabb2065a9
+size 730

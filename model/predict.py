@@ -1,5 +1,3 @@
-from ultralytics import YOLO
-if __name__ == '__main__':
-    model=YOLO(r"C:\Users\fyq\Desktop\bs\model\runs\detect\train\weights\best.pt")
-    source=r"C:\Users\fyq\Desktop\dataset\resized\domain2\images"
-    model.predict(source,save=True,imgsz=960)
+version https://git-lfs.github.com/spec/v1
+oid sha256:fd495b4878ae6a7c410b0ced441ebe277ec589c6672dfa61c7415f6e36cca061
+size 359

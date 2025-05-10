@@ -1,7 +1,3 @@
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
-
-from .predict import PosePredictor
-from .train import PoseTrainer
-from .val import PoseValidator
-
-__all__ = "PoseTrainer", "PoseValidator", "PosePredictor"
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb7c66b8764b37357c23be878555c0ab87f65b429393c3a2f5e2fe636d382f24
+size 227

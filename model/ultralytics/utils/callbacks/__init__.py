@@ -1,5 +1,3 @@
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
-
-from .base import add_integration_callbacks, default_callbacks, get_default_callbacks
-
-__all__ = "add_integration_callbacks", "default_callbacks", "get_default_callbacks"
+version https://git-lfs.github.com/spec/v1
+oid sha256:8732fadd171ee9591984fe0b7229bd2ca8da762c5a406f3a9caa8f864ec8912d
+size 242

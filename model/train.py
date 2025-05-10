@@ -1,13 +1,3 @@
-from ultralytics import YOLO
-if __name__ == '__main__':
-    #resume=True
-    #r"C:\Users\fyq\Desktop\bs\model\runs\detect\train8\weights\last.pt"
-    model = YOLO(r"yolo11n.pt")
-    results = model.train(data=r"C:\Users\fyq\Desktop\dataset\resized\data31.yaml",
-                          cfg=r"C:\Users\fyq\Desktop\dataset\resized\cfg.yaml",
-                          epochs=100,
-                          imgsz=960,
-                          batch=16,
-                          device=0,
-                          name="n31p",
-                          resume=True)
+version https://git-lfs.github.com/spec/v1
+oid sha256:611fb0749cc89b7c1c5eaa771b2bab7f5b9781bae88b0b680b3608a3ab166959
+size 667

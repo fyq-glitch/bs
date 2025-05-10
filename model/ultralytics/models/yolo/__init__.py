@@ -1,7 +1,3 @@
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
-
-from ultralytics.models.yolo import classify, detect, obb, pose, segment, world, yoloe
-
-from .model import YOLO, YOLOE, YOLOWorld
-
-__all__ = "classify", "segment", "detect", "pose", "obb", "world", "yoloe", "YOLO", "YOLOWorld", "YOLOE"
+version https://git-lfs.github.com/spec/v1
+oid sha256:a2bd23e71bdc334bac325b054d884d00e71052b8bbade0f4703f494796fbcc39
+size 307

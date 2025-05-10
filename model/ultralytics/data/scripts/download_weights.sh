@@ -1,18 +1,3 @@
-#!/bin/bash
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
-
-# Download latest models from https://github.com/ultralytics/assets/releases
-# Example usage: bash ultralytics/data/scripts/download_weights.sh
-# parent
-# └── weights
-#     ├── yolov8n.pt  ← downloads here
-#     ├── yolov8s.pt
-#     └── ...
-
-python << EOF
-from ultralytics.utils.downloads import attempt_download_asset
-
-assets = [f"yolov8{size}{suffix}.pt" for size in "nsmlx" for suffix in ("", "-cls", "-seg", "-pose")]
-for x in assets:
-    attempt_download_asset(f"weights/{x}")
-EOF
+version https://git-lfs.github.com/spec/v1
+oid sha256:d32f17b59c4eaeeedd5538570c55172c706e20280e22a64d530a722f8461ea58
+size 595

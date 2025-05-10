@@ -1,29 +1,3 @@
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
-
-from .tasks import (
-    BaseModel,
-    ClassificationModel,
-    DetectionModel,
-    SegmentationModel,
-    attempt_load_one_weight,
-    attempt_load_weights,
-    guess_model_scale,
-    guess_model_task,
-    parse_model,
-    torch_safe_load,
-    yaml_model_load,
-)
-
-__all__ = (
-    "attempt_load_one_weight",
-    "attempt_load_weights",
-    "parse_model",
-    "yaml_model_load",
-    "guess_model_task",
-    "guess_model_scale",
-    "torch_safe_load",
-    "DetectionModel",
-    "SegmentationModel",
-    "ClassificationModel",
-    "BaseModel",
-)
+version https://git-lfs.github.com/spec/v1
+oid sha256:ae3a1c8980fd968fcaf9dfb5b3a4db7569253cb8d37041e4ece22544326cb481
+size 615
