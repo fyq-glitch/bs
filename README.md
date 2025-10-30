@@ -40,33 +40,52 @@ In X-ray security applications, models trained on one dataset often fail to gene
 
 ## 📊 Results 实验结果
 
-2️⃣ Quantitative Results / 定量结果
-Model / 模型	Domain / 域	mAP@0.5 (%)	mAP@0.5:0.95 (%)	FPS	Parameters (M)
-Baseline YOLOv11	Source	89.4	65.8	123	11.2
-Baseline YOLOv11	Target	72.5	49.1	121	11.2
-+ Domain Alignment (DA)	Target	76.3	53.2	118	11.4
-+ Distillation (KL + DFL)	Target	78.7	55.6	118	11.4
-+ Semi-supervised Learning (SSL)	Target	79.6	56.9	117	11.4
+### 1️⃣ Experimental Setup / 实验设置
 
-Summary / 小结：
+- **Datasets / 数据集：**  
+  - X 射线安检行李图像集（8,200 张），采集于不同型号安检机  
+  - 图像尺寸统一为 640×640，包含 6 类物体（knife, gun, battery, lighter, bottle, electronics）
 
-在目标域（未见数据）上，改进模型的 mAP@0.5 提升了 7.1%，mAP@0.5:0.95 提升了 7.8%，
-同时保持实时推理速度（117 FPS），证明本方法在不显著增加模型复杂度的情况下实现了有效的跨域优化。
+- **Training Details / 训练细节：**  
+  - Base model: YOLOv11s (Ultralytics)  
+  - Batch size: 32  
+  - Learning rate: 1e-3 (Cosine annealing)  
+  - Optimizer: AdamW  
+  - Epochs: 100  
+  - Distillation temperature: 2.5  
+  - Environment: Ubuntu 22.04 + RTX 3090 (24GB) + CUDA 12.1  
 
-3️⃣ Ablation Study / 消融实验
-Setting / 配置	DA	Distillation	SSL	mAP@0.5	Gain
-Baseline	✗	✗	✗	72.5	-
-A	✓	✗	✗	76.3	+3.8
-B	✓	✓	✗	78.7	+6.2
-C	✓	✓	✓	79.6	+7.1
+---
 
-Observation / 观察：
+### 2️⃣ Quantitative Results / 定量结果
 
-单独的特征对齐（DA）能初步缓解域差异。
+| Model / 模型 | Domain / 域 | mAP@0.5 (%) | mAP@0.5:0.95 (%) | FPS | Parameters (M) |
+|---------------|--------------|--------------|------------------|-----|----------------|
+| Baseline YOLOv11 | Source | 89.4 | 65.8 | 123 | 11.2 |
+| Baseline YOLOv11 | Target | 72.5 | 49.1 | 121 | 11.2 |
+| + Domain Alignment (DA) | Target | 76.3 | 53.2 | 118 | 11.4 |
+| + Distillation (KL + DFL) | Target | 78.7 | 55.6 | 118 | 11.4 |
+| + Semi-supervised Learning (SSL) | Target | **79.6** | **56.9** | 117 | 11.4 |
 
-引入 KL + DFL 蒸馏后，模型特征分布更稳定，显著提升泛化性能。
+> **Summary / 小结：**  
+> 改进模型在目标域（未见数据）上的 mAP@0.5 提升 **7.1%**，mAP@0.5:0.95 提升 **7.8%**，  
+> 同时保持实时推理速度（117 FPS），在不显著增加模型复杂度的情况下实现了有效的跨域性能优化。
 
-在此基础上加入半监督学习（SSL）后，伪标签机制进一步提升目标域精度。
+---
+
+### 3️⃣ Ablation Study / 消融实验
+
+| Setting / 配置 | DA | Distillation | SSL | mAP@0.5 | Gain |
+|----------------|----|---------------|-----|----------|------|
+| Baseline | ✗ | ✗ | ✗ | 72.5 | - |
+| A | ✓ | ✗ | ✗ | 76.3 | +3.8 |
+| B | ✓ | ✓ | ✗ | 78.7 | +6.2 |
+| C | ✓ | ✓ | ✓ | **79.6** | **+7.1** |
+
+> **Observation / 观察：**  
+> - 单独的特征对齐（DA）初步缓解域差异；  
+> - 加入 KL + DFL 蒸馏后，特征分布更稳定，泛化性能显著提升；  
+> - 进一步结合半监督伪标签学习（SSL）后，检测精度达到最优。
 
 ---
 
