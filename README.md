@@ -33,8 +33,7 @@ In X-ray security applications, models trained on one dataset often fail to gene
 - **Base Model:** YOLOv11 (Ultralytics)  
 - **Frameworks:** PyTorch, OpenCV, NumPy  
 - **Loss Function:** KL Divergence + Distribution Focal Loss (DFL)  
-- **Adaptation Strategy:** Semi-supervised pseudo-labeling & feature alignment  
-- **Visualization:** t-SNE embedding and OpenCV domain comparison  
+- **Adaptation Strategy:** Semi-supervised pseudo-labeling & feature alignment   
 
 ---
 
