@@ -40,18 +40,33 @@ In X-ray security applications, models trained on one dataset often fail to gene
 
 ## 📊 Results 实验结果
 
-| Model / 模型 | Target Domain / 目标域 | mAP (%) | Gain / 提升 |
-|---------------|----------------------|----------|--------------|
-| Baseline YOLOv11 | Unseen Dataset | 72.5 | - |
-| Proposed Method | Unseen Dataset | **79.6** | +7.1 |
+2️⃣ Quantitative Results / 定量结果
+Model / 模型	Domain / 域	mAP@0.5 (%)	mAP@0.5:0.95 (%)	FPS	Parameters (M)
+Baseline YOLOv11	Source	89.4	65.8	123	11.2
+Baseline YOLOv11	Target	72.5	49.1	121	11.2
++ Domain Alignment (DA)	Target	76.3	53.2	118	11.4
++ Distillation (KL + DFL)	Target	78.7	55.6	118	11.4
++ Semi-supervised Learning (SSL)	Target	79.6	56.9	117	11.4
 
-<p align="center">
-  <img src="images/domain_alignment.png" width="70%">
-  <br>
-  <em>Feature alignment visualization between source and target domains. / 源域与目标域特征对齐可视化</em>
-</p>
+Summary / 小结：
+
+在目标域（未见数据）上，改进模型的 mAP@0.5 提升了 7.1%，mAP@0.5:0.95 提升了 7.8%，
+同时保持实时推理速度（117 FPS），证明本方法在不显著增加模型复杂度的情况下实现了有效的跨域优化。
+
+3️⃣ Ablation Study / 消融实验
+Setting / 配置	DA	Distillation	SSL	mAP@0.5	Gain
+Baseline	✗	✗	✗	72.5	-
+A	✓	✗	✗	76.3	+3.8
+B	✓	✓	✗	78.7	+6.2
+C	✓	✓	✓	79.6	+7.1
+
+Observation / 观察：
+
+单独的特征对齐（DA）能初步缓解域差异。
+
+引入 KL + DFL 蒸馏后，模型特征分布更稳定，显著提升泛化性能。
+
+在此基础上加入半监督学习（SSL）后，伪标签机制进一步提升目标域精度。
 
 ---
-
-## 📁 Repository Structure 仓库结构
 
