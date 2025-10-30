@@ -5,7 +5,6 @@
 
 ## 📘 Overview 概述
 
-This repository implements a **domain-adaptive YOLOv11** framework designed to improve object detection performance under **cross-domain shifts** in **X-ray security imagery**.  
 本项目实现了一个 **面向 X 射线安检图像的 YOLOv11 域自适应检测框架**，通过 **知识蒸馏、特征空间对齐** 与 **半监督学习**，提升模型在跨域场景下的检测性能。
 
 ---
@@ -21,8 +20,7 @@ This repository implements a **domain-adaptive YOLOv11** framework designed to i
 ---
 
 ## 🧠 Motivation 研究动机
-
-In X-ray security applications, models trained on one dataset often fail to generalize to unseen environments due to **domain shifts** (e.g., device type, background, or lighting).  
+ 
 在 X 射线安检场景中，不同设备或数据集之间存在显著的 **域差异（domain shift）**，导致模型泛化性能下降。  
 本研究尝试利用 **蒸馏学习 + 特征对齐策略** 缓解这一问题，从而实现高鲁棒性的跨域检测。
 
@@ -69,8 +67,6 @@ In X-ray security applications, models trained on one dataset often fail to gene
 | **Average / 平均值** | **0.511** | **0.499** | **0.535** | **0.548** | **0.520** | **0.584** | **0.587** |
 
 > **Observation / 结果分析：**  
-> Across six cross-domain transfer tasks (D₁, D₂, D₃), the proposed method achieves the highest average mAP (**0.587**),  
-> outperforming both classical domain adaptation frameworks (SWDA, PSN) and one-stage detectors (FCOS, Fine-YOLO).  
 > 在六组跨域迁移任务（D₁, D₂, D₃）中，本方法取得最高平均 mAP (**0.587**)，  
 > 超越了传统域自适应框架（SWDA、PSN）及单阶段检测器（FCOS、Fine-YOLO），  
 > 显示出在 **跨域鲁棒性与检测精度** 方面的优越性。
@@ -91,9 +87,6 @@ In X-ray security applications, models trained on one dataset often fail to gene
 | **Average / 平均值** | **0.587** | 0.560 | 0.562 | 0.579 | 0.552 | 0.549 | 0.549 |
 
 > **Interpretation / 实验分析：**  
-> - Removing any single component (DA, ST, or KD) consistently leads to performance degradation across all domain pairs.  
-> - The **E_full** configuration achieves the best average mAP (**0.587**), confirming that **domain alignment (DA)**, **self-training (ST)**, and **knowledge distillation (KD)** contribute **complementary benefits**.  
-> - Among single components, **DA** provides the largest improvement individually, while **ST + KD** combination yields the best balance between stability and accuracy.  
 > - 移除任一模块（DA、ST 或 KD）均导致跨域性能下降，表明三者互补性强。  
 > - 完整模型在所有任务中表现最佳（平均 mAP = **0.587**），验证了多策略协同的有效性。  
 > - 其中，域对齐（DA）提升最明显，而自训练（ST）与蒸馏（KD）的组合在稳定性与精度之间达到最优平衡。
