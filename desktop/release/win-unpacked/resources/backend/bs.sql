@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6c629692d4502da31110e4de34ccc31d668b73e5e06a8271b0e197a04836ed59
-size 445
+CREATE DATABASE bs;
+USE bs;
+CREATE TABLE images(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    filename VARCHAR(255),
+    filepath VARCHAR(255),
+    uoload_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+CREATE TABLE detections(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_id INT,
+    label VARCHAR(100),
+    confidence FLOAT,
+    x_center INT,
+    y_center INT,
+    weight INT,
+    height INT,
+    FOREIGN KEY (image_id) REFERENCES images(id)
+);

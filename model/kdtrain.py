@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:679e22b483b98628e52d7911d1e63fc572c79543864704e3c9302daa1a4f5eeb
-size 706
+from distillation.DistillationTrainer import DistillationTrainer
+if __name__ == '__main__':
+    args=dict(
+        model=r"C:\Users\fyq\Desktop\bs\model\runs\detect\n12\weights\best.pt",
+        data=r"C:\Users\fyq\Desktop\dataset\resized\data12.yaml",
+        epochs=100,
+        batch=16,
+        imgsz=960,
+        name="n12kd"
+    )
+
+    teacher_weights=r"C:\Users\fyq\Desktop\bs\model\runs\detect\n12\weights\best.pt"
+    kdcls_weight = 1.0
+    kddfl_weight = 1.0
+    kdf_weight=1.0
+    temperature=4.0
+    trainer=DistillationTrainer(overrides=args,teacher_weights=teacher_weights,kdcls_weight=kdcls_weight,kddfl_weight=kddfl_weight,kdf_weight=kdf_weight,temperature=temperature)
+    trainer.train()

@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:83e8b8198ef982f8f590697a8e08abd773e85a87f54afc805f5ca2d3f4017c3f
-size 380
+from ultralytics import YOLO
+
+if __name__ == '__main__':
+    model=YOLO(r"C:\Users\fyq\Desktop\bs\model\runs\detect\n12\weights\best.pt")
+    source=r"C:\Users\fyq\Desktop\data\domain2\images\00002.jpg"
+    results=model.predict(source,imgsz=960,conf=0.7,save=True,show=True)
+    for r in results:
+        print(r.boxes.xywhn)
+        print(r.boxes.cls)
+        print(r.boxes.id)

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f6102648c5922189a911cd01213f44631fcce67f6f2c21ca8a4560dc0d3e0e8a
-size 544
+from ultralytics import YOLO
+if __name__ == '__main__':
+    model = YOLO(r"C:\Users\fyq\Desktop\bs\model\ultralytics\runs\detect\n12sd\weights\best.pt")
+    val_results = model.val(data=r"C:\Users\fyq\Desktop\dataset\resized\data2.yaml",
+                            batch=16,
+                            imgsz=960,
+                            plots=True,
+                            iou=0.5,
+                            device=0,
+                            name="val_12sd",
+                            save=True,
+                            )

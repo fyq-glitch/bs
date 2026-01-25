@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c3330cb98309babc23d5936a92dd72365e41cb31faa219ba1404803c66a529a
-size 313
+epoch,time,train/box_loss,train/cls_loss,train/dfl_loss,metrics/precision(B),metrics/recall(B),metrics/mAP50(B),metrics/mAP50-95(B),val/box_loss,val/cls_loss,val/dfl_loss,lr/pg0,lr/pg1,lr/pg2
+1,175.106,0.97054,1.23535,1.23074,0.4438,0.31391,0.3275,0.21157,1.58183,3.07505,1.90509,0.00332754,0.00332754,0.00332754
